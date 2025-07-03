@@ -1,3 +1,9 @@
+<input
+  type="text"
+  (change)="updateFilter($event)"
+  placeholder="Filter customers by name"
+  value=""
+/>
 <ul>
   @for (customer of customers.customers; track customer.id) {
   <li>

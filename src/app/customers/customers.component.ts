@@ -3,7 +3,7 @@ import { Customer } from '../customer';
 import { CustomersService } from '../services/customers.service';
 import { HttpClient } from '@angular/common/http';
 import { JsonPipe } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 // import { } from '@angular/common/http';
 
 @Component({
@@ -19,7 +19,8 @@ export class CustomersComponent {
   constructor(
     private customersService: CustomersService,
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
@@ -32,6 +33,14 @@ export class CustomersComponent {
           console.log('customers', customers.customers);
           this.customers = customers;
         });
+    });
+  }
+  updateFilter(event: Event) {
+    const filter = event.target.value;
+    console.log('filter', filter);
+    this.router.navigate([], {
+      queryParams: { filter },
+      queryParamsHandling: 'merge', // Preserve other query parameters
     });
   }
 }
