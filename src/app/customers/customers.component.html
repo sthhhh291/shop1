@@ -1,1 +1,7 @@
-<p>customers works!</p>
+<ul>
+  @for (customer of customers; track customer.first_name) {
+  <li>
+    {{ customer.first_name }} {{ customer.last_name }} - {{ customer.notes }}
+  </li>
+  }
+</ul>
