@@ -1,7 +1,8 @@
 <ul>
-  @for (customer of customers; track customer.first_name) {
+  @for (customer of customers.customers; track customer.id) {
   <li>
     {{ customer.first_name }} {{ customer.last_name }} - {{ customer.notes }}
   </li>
   }
 </ul>
+{{ customers.totals | json }}
