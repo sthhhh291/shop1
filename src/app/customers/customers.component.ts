@@ -4,19 +4,24 @@ import { CustomersService } from '../services/customers.service';
 import { HttpClient } from '@angular/common/http';
 import { JsonPipe } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AddCustomerComponent } from './components/add-customer/add-customer.component';
 // import { } from '@angular/common/http';
 
 @Component({
   selector: 'app-customers',
-  imports: [JsonPipe],
+  imports: [JsonPipe, AddCustomerComponent],
   providers: [CustomersService],
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.css',
 })
 export class CustomersComponent {
+  onCustomerAdded($event: Event) {
+    throw new Error('Method not implemented.');
+  }
   filter: string = '';
   page: number = 1;
   limit: number = 30;
+  isAddCustomer: boolean = false;
   // private route: ActivatedRoute;
   customers: { totals: any; customers: Customer[] } = {
     totals: {},

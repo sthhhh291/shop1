@@ -1,0 +1,22 @@
+<form action="">
+  <input
+    type="text"
+    [(ngModel)]="customer.first_name"
+    name="first_name"
+    placeholder="First Name"
+    required
+  />
+  <input
+    type="text"
+    [(ngModel)]="customer.last_name"
+    name="last_name"
+    placeholder="Last Name"
+    required
+  />
+  <textarea
+    [(ngModel)]="customer.notes"
+    name="notes"
+    placeholder="Notes"
+  ></textarea>
+  <button type="submit">Add Customer</button>
+</form>
