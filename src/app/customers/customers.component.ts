@@ -14,8 +14,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './customers.component.css',
 })
 export class CustomersComponent {
+  filter: string = '';
+  page: number = 1;
+  limit: number = 30;
   // private route: ActivatedRoute;
-  customers: any = { totals: {}, customers: [] };
+  customers: { totals: any; customers: Customer[] } = {
+    totals: {},
+    customers: [],
+  };
   constructor(
     private customersService: CustomersService,
     private http: HttpClient,
@@ -24,23 +30,39 @@ export class CustomersComponent {
   ) {}
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
-      const limit = params['limit'] || 30;
-      const page = Number(params['page']) || 1;
-      const filter = params['filter'] || '';
+      this.limit = Number(params['limit']) || 30;
+      this.page = Number(params['page']) || 1;
+      this.filter = params['filter'] || '';
       this.customersService
-        .getCustomers(filter, page, limit)
+        .getCustomers(this.filter, this.page, this.limit)
         .subscribe((customers) => {
           console.log('customers', customers.customers);
           this.customers = customers;
         });
     });
   }
-  updateFilter(event: Event) {
-    const filter = event.target.value;
-    console.log('filter', filter);
+  updateFilter(event: any) {
+    this.filter = event.target.value;
+    this.page = 1;
+    console.log('filter', this.filter);
     this.router.navigate([], {
-      queryParams: { filter },
+      queryParams: { filter: this.filter, page: this.page },
       queryParamsHandling: 'merge', // Preserve other query parameters
+    });
+  }
+  updatePage(event: any) {
+    this.page = event.target.value;
+    this.router.navigate([], {
+      queryParams: { page: this.page },
+      queryParamsHandling: 'merge',
+    });
+  }
+  updateLimit(event: any) {
+    this.limit = event.target.value;
+    this.page = 1; // Reset to first page when limit changes
+    this.router.navigate([], {
+      queryParams: { limit: this.limit, page: this.page },
+      queryParamsHandling: 'merge',
     });
   }
 }

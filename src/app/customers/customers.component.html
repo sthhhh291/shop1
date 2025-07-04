@@ -2,7 +2,24 @@
   type="text"
   (change)="updateFilter($event)"
   placeholder="Filter customers by name"
-  value=""
+  [value]="filter"
+/>
+<input
+  type="number"
+  (change)="updateLimit($event)"
+  placeholder="Page size"
+  [value]="limit"
+  min="5"
+  max="100"
+  step="5"
+/>
+<input
+  type="number"
+  (change)="updatePage($event)"
+  placeholder="Page Number"
+  [value]="page"
+  min="1"
+  [max]="customers.totals.pages"
 />
 <ul>
   @for (customer of customers.customers; track customer.id) {
