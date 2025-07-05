@@ -3,21 +3,18 @@ import { Customer } from '../customer';
 import { CustomersService } from '../services/customers.service';
 import { HttpClient } from '@angular/common/http';
 import { JsonPipe } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AddCustomerComponent } from './components/add-customer/add-customer.component';
 // import { } from '@angular/common/http';
 
 @Component({
   selector: 'app-customers',
-  imports: [JsonPipe, AddCustomerComponent],
+  imports: [JsonPipe, AddCustomerComponent, RouterModule],
   providers: [CustomersService],
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.css',
 })
 export class CustomersComponent {
-  onCustomerAdded($event: Event) {
-    throw new Error('Method not implemented.');
-  }
   filter: string = '';
   page: number = 1;
   limit: number = 30;

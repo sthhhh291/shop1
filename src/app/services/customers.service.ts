@@ -18,7 +18,7 @@ export class CustomersService {
   getCustomer(id: number): Observable<Customer> {
     return this.http.get<Customer>(`http://localhost:3001/customers/${id}`);
   }
-  addCustomer(customer: Customer): Observable<Customer> {
+  addCustomer(customer: Customer): Observable<any> {
     return this.http.post<Customer>(
       'http://localhost:3001/customers',
       customer
