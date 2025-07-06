@@ -5,7 +5,7 @@
       type="text"
       (change)="updateFilter($event)"
       placeholder="Filter customers by name"
-      [value]="filter"
+      [value]="filter()"
     />
   </div>
   <div class="input-group">
@@ -14,7 +14,7 @@
       type="number"
       (change)="updateLimit($event)"
       placeholder="Page size"
-      [value]="limit"
+      [value]="limit()"
       min="5"
       max="100"
       step="5"
@@ -26,20 +26,20 @@
       type="number"
       (change)="updatePage($event)"
       placeholder="Page Number"
-      [value]="page"
+      [value]="page()"
       min="1"
-      [max]="customers.totals.pages"
+      [max]="customers().totals.pages"
     />
   </div>
 </div>
 <ul>
-  @for (customer of customers.customers; track customer.id) {
+  @for (customer of customers().customers; track customer.id) {
   <li>
     {{ customer.first_name }} {{ customer.last_name }} - {{ customer.notes }}
   </li>
   }
 </ul>
-{{ customers.totals | json }}
+{{ customers().totals | json }}
 
 <!-- <button (click)="prevPage()" [disabled]="page <= 1">Previous</button>
 <button (click)="nextPage()" [disabled]="page >= customers.totals.pages">Next -->
