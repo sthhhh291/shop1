@@ -1,12 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, Inject, inject, Input, signal } from '@angular/core';
 import { CustomersService } from '../../../services/customers.service';
-import { Customer } from '../../../customer';
+import { Customer } from '../../../types/customer';
 import { JsonPipe } from '@angular/common';
-import {
-  Router,
-  RouterModule,
-  withComponentInputBinding,
-} from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
@@ -18,40 +14,41 @@ import {
 export class SearchComponent {
   router = inject(Router);
   customersService = inject(CustomersService);
-  filter = withComponentInputBinding();
-  page = withComponentInputBinding();
-  limit = withComponentInputBinding();
   customers = signal<{ totals: any; customers: Customer[] }>({
     totals: {},
     customers: [],
   });
-  updateFilter(event: any) {
-    this.filter.(event.target.value);
-    this.page.set(1);
-    console.log('filter', this.filter());
+  filter = '';
+  page = 1;
+  limit = 10;
+
+  updateFilter = (event: Event) => {
+    const input = event.target as HTMLInputElement;
+    this.filter = input.value;
+    this.page = 1;
     this.customersService
-      .getCustomers(this.filter(), this.page(), this.limit())
-      .subscribe((customers) => {
-        this.customers.set(customers);
+      .getCustomers(this.filter, this.page, this.limit)
+      .subscribe((data) => {
+        this.customers.set(data);
       });
-    this.router.navigate([], {
-      queryParams: { filter: this.filter(), page: this.page() },
-      queryParamsHandling: 'merge',
-    });
-  }
-  updatePage(event: any) {
-    this.page.set(event.target.value);
-    this.router.navigate([], {
-      queryParams: { page: this.page() },
-      queryParamsHandling: 'merge',
-    });
-  }
-  updateLimit(event: any) {
-    this.limit.set(event.target.value);
-    this.page.set(1);
-    this.router.navigate([], {
-      queryParams: { limit: this.limit(), page: this.page() },
-      queryParamsHandling: 'merge',
-    });
-  }
+  };
+  updatePage = (event: Event) => {
+    const input = event.target as HTMLInputElement;
+    this.page = Number(input.value);
+    this.customersService
+      .getCustomers(this.filter, this.page, this.limit)
+      .subscribe((data) => {
+        this.customers.set(data);
+      });
+  };
+  updateLimit = (event: Event) => {
+    const input = event.target as HTMLInputElement;
+    this.limit = Number(input.value);
+    this.page = 1;
+    this.customersService
+      .getCustomers(this.filter, this.page, this.limit)
+      .subscribe((data) => {
+        this.customers.set(data);
+      });
+  };
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Customer } from '../../../customer';
+import { Customer } from '../../../types/customer';
 import { CustomersService } from '../../../services/customers.service';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';

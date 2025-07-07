@@ -49,6 +49,14 @@ a:hover {
   background-color: #05191d;
 }
 
+li {
+  list-style: none;
+  padding: 5px;
+  margin: 10px;
+  /* border: 1px solid #ccc;
+  border-radius: 4px; */
+}
+
 .input-group {
   display: block;
   flex: 100%;
