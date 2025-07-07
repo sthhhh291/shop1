@@ -41,11 +41,4 @@
 </ul>
 {{ customers().totals | json }}
 
-<!-- <button (click)="prevPage()" [disabled]="page <= 1">Previous</button>
-<button (click)="nextPage()" [disabled]="page >= customers.totals.pages">Next -->
-<!-- @if (isAddCustomer) {
-<app-add-customer></app-add-customer>
-} @else {
-<button (click)="isAddCustomer = true">Add Customer</button>
-} -->
 <a [routerLink]="['/customers/add']">Add Customer</a>
