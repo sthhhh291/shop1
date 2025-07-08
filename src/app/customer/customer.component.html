@@ -1,4 +1,22 @@
-<p>customer works!</p>
-<div>{{ customer() | json }}</div>
-<div>{{ phones() | json }}</div>
-<div>{{ cars() | json }}</div>
+<div>
+  <h1>{{ customer()?.first_name }} {{ customer()?.last_name }}</h1>
+  <div class="button-group">
+    <button
+      (click)="deleteCustomer(customer()?.id!)"
+      [disabled]="!customer()?.id"
+    >
+      Delete
+    </button>
+    <button (click)="editCustomer()">Edit</button>
+    <button (click)="addPhone(customer()?.id!)">Add Phone</button>
+    <button (click)="addCar(customer()?.id!)">Add Car</button>
+  </div>
+  @for (phone of phones(); track phone.id) {
+  <h4>{{ phone?.phone_number }} {{ phone?.phone_type }}</h4>
+  }
+</div>
+<div>
+  @for (car of cars(); track car.id) {
+  <h4>{{ car.year }} {{ car?.make }} {{ car?.model }}</h4>
+  }
+</div>

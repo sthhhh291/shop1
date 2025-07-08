@@ -65,6 +65,20 @@ li {
   /* margin-bottom: 10px; */
 }
 
+nav {
+  background-color: #33575e;
+  padding: 10px;
+  color: white;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+nav ul > li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 .container {
   display: flex;
   justify-content: space-between;

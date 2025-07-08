@@ -1,0 +1,16 @@
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    formControlName="first_name"
+    placeholder="First Name"
+    required
+  />
+  <input
+    type="text"
+    formControlName="last_name"
+    placeholder="Last Name"
+    required
+  />
+  <textarea formControlName="notes" placeholder="Notes"></textarea>
+  <button type="submit">Add Customer</button>
+</form>

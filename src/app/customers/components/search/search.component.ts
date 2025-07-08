@@ -18,35 +18,43 @@ export class SearchComponent {
     totals: {},
     customers: [],
   });
-  filter = '';
-  page = 1;
-  limit = 10;
+  filter = signal<string>('');
+  page = signal<number>(1);
+  limit = signal<number>(10);
+
+  ngOnInit() {
+    this.customersService
+      .getCustomers(this.filter(), this.page(), this.limit())
+      .subscribe((data) => {
+        this.customers.set(data);
+      });
+  }
 
   updateFilter = (event: Event) => {
     const input = event.target as HTMLInputElement;
-    this.filter = input.value;
-    this.page = 1;
+    this.filter.set(input.value);
+    this.page.set(1);
     this.customersService
-      .getCustomers(this.filter, this.page, this.limit)
+      .getCustomers(this.filter(), this.page(), this.limit())
       .subscribe((data) => {
         this.customers.set(data);
       });
   };
   updatePage = (event: Event) => {
     const input = event.target as HTMLInputElement;
-    this.page = Number(input.value);
+    this.page.set(Number(input.value));
     this.customersService
-      .getCustomers(this.filter, this.page, this.limit)
+      .getCustomers(this.filter(), this.page(), this.limit())
       .subscribe((data) => {
         this.customers.set(data);
       });
   };
   updateLimit = (event: Event) => {
     const input = event.target as HTMLInputElement;
-    this.limit = Number(input.value);
-    this.page = 1;
+    this.limit.set(Number(input.value));
+    this.page.set(1);
     this.customersService
-      .getCustomers(this.filter, this.page, this.limit)
+      .getCustomers(this.filter(), this.page(), this.limit())
       .subscribe((data) => {
         this.customers.set(data);
       });

@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
   selector: 'app-add-customer',
   imports: [ReactiveFormsModule],
   providers: [CustomersService],
-  templateUrl: './add-customer.component.html',
-  styleUrl: './add-customer.component.css',
+  templateUrl: './edit-customer.component.html',
+  styleUrl: './edit-customer.component.css',
 })
-export class AddCustomerComponent {
+export class EditCustomerComponent {
   constructor(
     private http: HttpClient,
     private customersService: CustomersService,
@@ -28,8 +28,8 @@ export class AddCustomerComponent {
   customerService: CustomersService;
   onSubmit() {
     const customer: Customer = this.customerForm.value as Customer;
-    this.customerService.addCustomer(customer).subscribe((response) => {
-      this.router.navigate([`/customers/${response.insertId}`]); // Navigate to the new customer's detail page
+    this.customerService.updateCustomer(customer).subscribe((response) => {
+      this.router.navigate([`/customers/${response.id}`]); // Navigate to the new customer's detail page
       this.customerForm.reset();
     });
   }

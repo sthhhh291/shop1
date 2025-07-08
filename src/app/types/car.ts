@@ -4,9 +4,9 @@ export interface Car {
   year: string;
   make: string;
   model: string;
-  engine: string;
-  vin: string;
-  license: string;
-  fleet_no: string;
-  notes: string;
+  engine?: string;
+  vin?: string;
+  license?: string;
+  fleet_no?: string;
+  notes?: string;
 }
