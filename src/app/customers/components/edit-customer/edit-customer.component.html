@@ -1,4 +1,5 @@
 <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+  <input type="hidden" formControlName="id" [value]="customer()?.id" />
   <input
     type="text"
     formControlName="first_name"
@@ -12,5 +13,5 @@
     required
   />
   <textarea formControlName="notes" placeholder="Notes"></textarea>
-  <button type="submit">Add Customer</button>
+  <button type="submit">Edit Customer</button>
 </form>
