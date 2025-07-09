@@ -40,16 +40,10 @@ export class CustomerComponent {
       this.router.navigate(['/customers']);
     });
   }
-  addPhone(id: number): void {
-    const newPhone: Phone = {
-      id: 0,
-      customer_id: this.customer()?.id || 0,
-      phone_number: '',
-      phone_type: '',
-    };
-    this.phones.update((phones) => [...phones, newPhone]);
+  addPhone(): void {
+    this.router.navigate([`/customers/${this.customer()?.id}/add-phone`]);
   }
-  addCar(id: number): void {
+  addCar(): void {
     const newCar: Car = {
       id: 0,
       customer_id: this.customer()?.id || 0,

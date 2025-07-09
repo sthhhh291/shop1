@@ -1,0 +1,19 @@
+<form [formGroup]="phoneForm" (ngSubmit)="onSubmit()">
+  <input type="hidden" formControlName="customer_id" [value]="id" />
+  <input
+    type="text"
+    formControlName="phone_number"
+    placeholder="Phone Number"
+    required
+  />
+  <input
+    type="text"
+    formControlName="phone_type"
+    placeholder="Phone Type"
+    required
+  />
+  <button type="submit">Add Phone</button>
+</form>
+<div>
+  {{ id }}
+</div>

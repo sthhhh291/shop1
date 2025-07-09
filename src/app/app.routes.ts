@@ -8,6 +8,7 @@ import { CarsComponent } from './cars/cars.component';
 import { AddCarComponent } from './cars/components/add-car/add-car.component';
 import { CarComponent } from './car/car.component';
 import { SearchComponent as CarSearchComponent } from './cars/components/search/search.component';
+import { AddPhoneComponent } from './customer/components/add-phone/add-phone.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'customers', pathMatch: 'full' },
@@ -20,6 +21,7 @@ export const routes: Routes = [
       { path: 'search', component: CustomerSearchComponent },
       { path: ':id', component: CustomerComponent },
       { path: ':id/edit', component: EditCustomerComponent },
+      { path: ':id/add-phone', component: AddPhoneComponent },
     ],
   },
   {

@@ -8,8 +8,9 @@
       Delete
     </button>
     <button (click)="editCustomer()">Edit</button>
-    <button (click)="addPhone(customer()?.id!)">Add Phone</button>
-    <button (click)="addCar(customer()?.id!)">Add Car</button>
+    <a href="/customers/{{ customer()?.id }}/add-phone">Add Phone</a>
+    <a href="/customers/{{ customer()?.id }}/add-car">Add Car</a>
+    <button (click)="addCar()">Add Car</button>
   </div>
   @for (phone of phones(); track phone.id) {
   <h4>{{ phone?.phone_number }} {{ phone?.phone_type }}</h4>
