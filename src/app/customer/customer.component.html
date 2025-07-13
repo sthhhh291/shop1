@@ -1,32 +1,13 @@
-<div class="container">
-  <div class="card">
-    <h2>Customer Details</h2>
-    <h2>Name: {{ customer()?.first_name }} {{ customer()?.last_name }}</h2>
-    <h4>Phones</h4>
-    @for (phone of phones(); track phone.id) {
-    <h4>{{ phone?.phone_number }} {{ phone?.phone_type }}</h4>
+<div class="container"></div>
+<app-customer-card [customer]="customer()"></app-customer-card>
+<app-phones-card [phones]="phones()"></app-phones-card>
+<div class="card">
+  <h2>Cars</h2>
+  <div class="grid">
+    @for (car of cars(); track car.id) {
+    <a href="/cars/{{ car.id }}"
+      >{{ car.year }} {{ car.make }} {{ car.model }}</a
+    >
     }
-    <div class="button-group">
-      <button
-        (click)="deleteCustomer(customer()?.id!)"
-        [disabled]="!customer()?.id"
-      >
-        Delete
-      </button>
-      <button (click)="editCustomer()">Edit</button>
-      <a href="/customers/{{ customer()?.id }}/add-phone">Add Phone</a>
-      <a href="/customers/{{ customer()?.id }}/add-car">Add Car</a>
-      <button (click)="addCar()">Add Car</button>
-    </div>
-  </div>
-  <div class="card">
-    <h2>Cars</h2>
-    <div class="grid">
-      @for (car of cars(); track car.id) {
-      <a href="/cars/{{ car.id }}"
-        >{{ car.year }} {{ car.make }} {{ car.model }}</a
-      >
-      }
-    </div>
   </div>
 </div>

@@ -1,0 +1,10 @@
+<div class="card">
+  <h2>Phones:</h2>
+  @for (phone of phones; track phone.id) {
+  <div class="button-group">
+    <h4>{{ phone.phone_number }}: {{ phone.phone_type }}</h4>
+    <button>Edit</button>
+    <button>Delete</button>
+  </div>
+  }
+</div>

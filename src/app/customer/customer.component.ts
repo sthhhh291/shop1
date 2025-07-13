@@ -5,10 +5,12 @@ import { JsonPipe } from '@angular/common';
 import { Phone } from '../types/phone';
 import { Car } from '../types/car';
 import { Router } from '@angular/router';
+import { PhonesCardComponent } from '../components/phones-card/phones-card.component';
+import { CustomerCardComponent } from '../components/customer-card/customer-card.component';
 
 @Component({
   selector: 'app-customer',
-  imports: [JsonPipe],
+  imports: [JsonPipe, PhonesCardComponent, CustomerCardComponent],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css',
 })
@@ -31,6 +33,7 @@ export class CustomerComponent {
     this.customerService.getCustomerCars(idNum).subscribe((data) => {
       this.cars.set(data);
     });
+    console.log('phones from customer:', this.phones());
   }
   deleteCustomer(id: number): void {
     if (!confirm('Are you sure you want to delete this customer?')) {
