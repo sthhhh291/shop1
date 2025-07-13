@@ -1,0 +1,10 @@
+<div class="card">
+  <h2>Estimates</h2>
+  <div class="grid">
+    @for (estimate of estimates; track estimate.id) {
+    <a href="/cars/{{ estimate.id }}"
+      >{{ estimate.date }} {{ estimate.hours_taken }} {{ estimate.miles }}</a
+    >
+    }
+  </div>
+</div>

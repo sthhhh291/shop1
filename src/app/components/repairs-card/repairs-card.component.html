@@ -1,0 +1,10 @@
+<div class="card">
+  <h2>Repairs</h2>
+  <div class="grid">
+    @for (repair of repairs; track repair.id) {
+    <a href="/cars/{{ repair.id }}"
+      >{{ repair.date }} {{ repair.hours_taken }} {{ repair.miles }}</a
+    >
+    }
+  </div>
+</div>

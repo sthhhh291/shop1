@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Customer } from '../../types/customer';
 
 @Component({
@@ -8,11 +8,5 @@ import { Customer } from '../../types/customer';
   styleUrl: './customer-card.component.css',
 })
 export class CustomerCardComponent {
-  // @Input() customer: Customer | null = null
-  customer: Customer = input.required<Customer>({
-    id: 0,
-    first_name: '',
-    last_name: '',
-    notes: '',
-  });
+  @Input() customer: Customer | null = null;
 }

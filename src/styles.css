@@ -81,7 +81,7 @@ nav ul > li {
 
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   /* flex: 100%;
   align-items: center;
   margin: 10px;

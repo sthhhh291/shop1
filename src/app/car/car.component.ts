@@ -2,14 +2,24 @@ import { Component, inject, input, Input, signal } from '@angular/core';
 import { Car } from '../types/car';
 import { CarsService } from '../services/cars.service';
 import { Estimate } from '../types/estimate';
-import { JsonPipe } from '@angular/common';
 import { Customer } from '../types/customer';
 import { CustomersService } from '../services/customers.service';
 import { Phone } from '../types/phone';
+import { CustomerCardComponent } from '../components/customer-card/customer-card.component';
+import { PhonesCardComponent } from '../components/phones-card/phones-card.component';
+import { CarCardComponent } from '../components/car-card/car-card.component';
+import { RepairsCardComponent } from '../components/repairs-card/repairs-card.component';
+import { EstimatesCardComponent } from '../components/estimates-card/estimates-card.component';
 
 @Component({
   selector: 'app-car',
-  imports: [JsonPipe],
+  imports: [
+    CustomerCardComponent,
+    PhonesCardComponent,
+    CarCardComponent,
+    RepairsCardComponent,
+    EstimatesCardComponent,
+  ],
   providers: [CarsService, CustomersService],
   templateUrl: './car.component.html',
   styleUrl: './car.component.css',

@@ -1,13 +1,5 @@
-<div class="container"></div>
-<app-customer-card [customer]="customer()"></app-customer-card>
-<app-phones-card [phones]="phones()"></app-phones-card>
-<div class="card">
-  <h2>Cars</h2>
-  <div class="grid">
-    @for (car of cars(); track car.id) {
-    <a href="/cars/{{ car.id }}"
-      >{{ car.year }} {{ car.make }} {{ car.model }}</a
-    >
-    }
-  </div>
+<div class="container">
+  <app-customer-card [customer]="customer()"></app-customer-card>
+  <app-phones-card [phones]="phones()"></app-phones-card>
+  <app-cars-card [cars]="cars()"></app-cars-card>
 </div>

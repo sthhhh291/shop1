@@ -1,0 +1,10 @@
+<div class="card">
+  <h2>Cars:</h2>
+  @for (car of cars; track car.id) {
+  <div class="button-group">
+    <a href="/cars/{{ car.id }}"
+      >{{ car.year }} {{ car.make }} {{ car.model }}
+    </a>
+  </div>
+  }
+</div>

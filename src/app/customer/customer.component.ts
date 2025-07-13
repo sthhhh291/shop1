@@ -7,10 +7,11 @@ import { Car } from '../types/car';
 import { Router } from '@angular/router';
 import { PhonesCardComponent } from '../components/phones-card/phones-card.component';
 import { CustomerCardComponent } from '../components/customer-card/customer-card.component';
+import { CarsCardComponent } from '../components/cars-card/cars-card.component';
 
 @Component({
   selector: 'app-customer',
-  imports: [JsonPipe, PhonesCardComponent, CustomerCardComponent],
+  imports: [PhonesCardComponent, CustomerCardComponent, CarsCardComponent],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css',
 })
