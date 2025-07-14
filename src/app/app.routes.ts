@@ -9,6 +9,10 @@ import { AddCarComponent } from './cars/components/add-car/add-car.component';
 import { CarComponent } from './car/car.component';
 import { SearchComponent as CarSearchComponent } from './cars/components/search/search.component';
 import { AddPhoneComponent } from './customer/components/add-phone/add-phone.component';
+import { EstimatesComponent } from './estimates/estimates.component';
+import { EstimateComponent } from './estimate/estimate.component';
+import { RepairsComponent } from './repairs/repairs.component';
+import { RepairComponent } from './repair/repair.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'customers', pathMatch: 'full' },
@@ -34,4 +38,23 @@ export const routes: Routes = [
       { path: ':id', component: CarComponent },
     ],
   },
+  {
+    path: 'estimates',
+    component: EstimatesComponent,
+    children: [
+      // { path: '', redirectTo: 'search', pathMatch: 'full' },
+      // { path: 'add', component: AddEstimateComponent },
+      // { path: 'search', component: EstimateSearchComponent },
+      { path: ':id', component: EstimateComponent },
+    ],
+  },
+  {
+    path: 'repairs',
+    // component: RepairsComponent,
+    children: [
+      { path: '', component: RepairsComponent, pathMatch: 'full' },
+      { path: ':id', component: RepairComponent },
+    ],
+  },
+  { path: '**', redirectTo: 'customers', pathMatch: 'full' },
 ];
