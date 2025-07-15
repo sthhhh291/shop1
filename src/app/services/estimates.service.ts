@@ -23,6 +23,17 @@ export class EstimatesService {
   getEstimate(id: number): Observable<Estimate> {
     return this.http.get<Estimate>(`http://localhost:3001/estimates/${id}`);
   }
+  getEstimateCustomer(id: number): Observable<Customer> {
+    return this.http.get<Customer>(
+      `http://localhost:3001/estimates/${id}/customer`
+    );
+  }
+  getEstimateCar(id: number): Observable<Car> {
+    return this.http.get<Car>(`http://localhost:3001/estimates/${id}/car`);
+  }
+  getEstimatePhones(id: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:3001/estimates/${id}/phones`);
+  }
   getEstimateLabor(id: number): Observable<Labor[]> {
     return this.http.get<Labor[]>(
       `http://localhost:3001/estimates/${id}/labor`

@@ -40,9 +40,9 @@ export const routes: Routes = [
   },
   {
     path: 'estimates',
-    component: EstimatesComponent,
+  // component: EstimatesComponent,
     children: [
-      // { path: '', redirectTo: 'search', pathMatch: 'full' },
+      { path: '', component: EstimatesComponent, pathMatch: 'full' },
       // { path: 'add', component: AddEstimateComponent },
       // { path: 'search', component: EstimateSearchComponent },
       { path: ':id', component: EstimateComponent },

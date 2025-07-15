@@ -43,8 +43,6 @@ export class RepairComponent {
   oil = signal<Part[]>([]);
   totals = signal<Totals | null>(null);
   id = input.required<string>();
-  carId: number = 0;
-  customerId: number = 0;
   ngOnInit() {
     this.repairService.getRepair(Number(this.id())).subscribe((data) => {
       this.repair.set(data);

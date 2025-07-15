@@ -1,1 +1,12 @@
-<p>estimate works!</p>
+<div class="container">
+  <app-customer-card [customer]="customer()"></app-customer-card>
+  <app-phones-card [phones]="phones()"></app-phones-card>
+  <app-car-card [car]="car()"></app-car-card>
+  <app-estimate-card [estimate]="estimate()"></app-estimate-card>
+</div>
+<div class="container">
+  <app-labor-card [labor]="labor()"></app-labor-card>
+  <app-parts-card [parts]="parts()"></app-parts-card>
+  <app-oil-card [oil]="oil()"></app-oil-card>
+  <app-totals-card [totals]="totals()"></app-totals-card>
+</div>
