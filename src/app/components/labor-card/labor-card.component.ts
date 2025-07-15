@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Labor } from '../../types/labor';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-labor-card',
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './labor-card.component.html',
   styleUrl: './labor-card.component.css',
 })

@@ -1,5 +1,5 @@
 <div class="card">
   <h2>Repair Card</h2>
-  <h4>{{ repair?.date }}</h4>
-  <h4>{{ repair?.miles }}</h4>
+  <h4>Date: {{ repair?.date | date : "shortDate" }}</h4>
+  <h4>Miles: {{ repair?.miles }}</h4>
 </div>

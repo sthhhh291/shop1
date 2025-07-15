@@ -2,10 +2,10 @@
   <h2>Oil</h2>
   @for (oi of oil; track oi.id) {
   <div class="oil-item">
-    <h4>{{ oi.description }}</h4>
-    <p>Quantity: {{ oi.quantity }}</p>
-    <p>Price: {{ oi.price }}</p>
-    <p>Total: {{ oi.quantity * oi.price }}</p>
+    <h4>
+      {{ oi.description }} Quantity: {{ oi.quantity }} Price:
+      {{ oi.price | currency }} Total: {{ oi.quantity * oi.price | currency }}
+    </h4>
   </div>
   }
 </div>

@@ -2,10 +2,14 @@
   <h2>Parts</h2>
   @for (part of parts; track part.id) {
   <div class="part-item">
-    <h4>{{ part.description }}</h4>
-    <p>Quantity: {{ part.quantity }}</p>
+    <h4>
+      {{ part.description }} Quantity: {{ part.quantity }} Price:
+      {{ part.price | currency }} Total:
+      {{ part.quantity * part.price | currency }}
+    </h4>
+    <!-- <p>Quantity: {{ part.quantity }}</p>
     <p>Price: {{ part.price }}</p>
-    <p>Total: {{ part.quantity * part.price }}</p>
+    <p>Total: {{ part.quantity * part.price }}</p> -->
   </div>
   }
 </div>

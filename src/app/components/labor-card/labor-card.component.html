@@ -2,9 +2,7 @@
   <h2>Labor</h2>
   @for (lab of labor; track lab.id) {
   <div class="labor-item">
-    <h4>{{ lab.description }}</h4>
-    <p>Hours: {{ lab.hours }}</p>
-    <p>Rate: {{ lab.price }}</p>
+    <h4>{{ lab.description }} {{ lab.price | currency }}</h4>
   </div>
   }
 </div>
