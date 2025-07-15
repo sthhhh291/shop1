@@ -1,0 +1,11 @@
+<div class="card">
+  <h2>Parts</h2>
+  @for (part of parts; track part.id) {
+  <div class="part-item">
+    <h4>{{ part.description }}</h4>
+    <p>Quantity: {{ part.quantity }}</p>
+    <p>Price: {{ part.price }}</p>
+    <p>Total: {{ part.quantity * part.price }}</p>
+  </div>
+  }
+</div>

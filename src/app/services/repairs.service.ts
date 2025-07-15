@@ -7,6 +7,7 @@ import { Customer } from '../types/customer';
 import { Labor } from '../types/labor';
 import { Part } from '../types/part';
 import { Totals } from '../types/totals';
+import { Phone } from '../types/phone';
 
 @Injectable()
 export class RepairsService {
@@ -22,6 +23,19 @@ export class RepairsService {
   }
   getRepair(id: number): Observable<Estimate> {
     return this.http.get<Estimate>(`http://localhost:3001/repair_orders/${id}`);
+  }
+  getRepairCar(id: number): Observable<Car> {
+    return this.http.get<Car>(`http://localhost:3001/repair_orders/${id}/car`);
+  }
+  getRepairCustomer(id: number): Observable<Customer> {
+    return this.http.get<Customer>(
+      `http://localhost:3001/repair_orders/${id}/customer`
+    );
+  }
+  getRepairPhones(id: number): Observable<Phone[]> {
+    return this.http.get<Phone[]>(
+      `http://localhost:3001/repair_orders/${id}/phones`
+    );
   }
   getRepairLabor(id: number): Observable<Labor[]> {
     return this.http.get<Labor[]>(

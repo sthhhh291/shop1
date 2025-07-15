@@ -1,13 +1,12 @@
 <div class="container">
-  <h1>Repair Component</h1>
-  {{ repair() | json }}
-  <h2>Labor</h2>
-  {{ labor() | json }}
-  <h2>Parts</h2>
-  {{ parts() | json }}
-  <h2>Oil</h2>
-  {{ oil() | json }}
-  <h2>Totals</h2>
-  {{ totals() | json }}
-  <h1>{{ id() }}</h1>
+  <app-customer-card [customer]="customer()"></app-customer-card>
+  <app-phones-card [phones]="phones()"></app-phones-card>
+  <app-car-card [car]="car()"></app-car-card>
+  <app-repair-card [repair]="repair()"></app-repair-card>
+</div>
+<div class="container">
+  <app-labor-card [labor]="labor()"></app-labor-card>
+  <app-parts-card [parts]="parts()"></app-parts-card>
+  <app-oil-card [oil]="oil()"></app-oil-card>
+  <app-totals-card [totals]="totals()"></app-totals-card>
 </div>

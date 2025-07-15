@@ -1,0 +1,10 @@
+<div class="card">
+  <h2>Labor</h2>
+  @for (lab of labor; track lab.id) {
+  <div class="labor-item">
+    <h4>{{ lab.description }}</h4>
+    <p>Hours: {{ lab.hours }}</p>
+    <p>Rate: {{ lab.price }}</p>
+  </div>
+  }
+</div>
