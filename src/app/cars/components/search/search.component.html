@@ -1,1 +1,55 @@
-<p>search works!</p>
+<div class="container">
+  <div class="input-group">
+    <label for="filter">Filter Customers</label>
+    <input
+      type="text"
+      (change)="updateCustomer($event)"
+      placeholder="Filter customers by name"
+      [value]="customer()"
+    />
+  </div>
+  <div class="input-group">
+    <label for="car">Filter Cars</label>
+    <input
+      type="text"
+      (change)="updateCar($event)"
+      placeholder="Filter cars by name"
+      [value]="car()"
+    />
+  </div>
+  <div class="input-group">
+    <label for="limit">Page size</label>
+    <input
+      type="number"
+      (change)="updateLimit($event)"
+      placeholder="Page size"
+      [value]="limit()"
+      min="5"
+      max="100"
+      step="5"
+    />
+  </div>
+  <div class="input-group">
+    <label for="page">Page Number</label>
+    <input
+      type="number"
+      (change)="updatePage($event)"
+      placeholder="Page Number"
+      [value]="page()"
+      min="1"
+      [max]="cars().totals.pages"
+    />
+  </div>
+  <a [routerLink]="['/cars/add']">Add car</a>
+</div>
+<ul>
+  @for (car of cars().cars; track car.id) {
+  <li>
+    <a [routerLink]="['/cars', car.id]">
+      {{ car.first_name }} {{ car.last_name }} - {{ car.year }} {{ car.make }}
+      {{ car.model }}
+    </a>
+  </li>
+  }
+</ul>
+{{ cars().totals | json }}

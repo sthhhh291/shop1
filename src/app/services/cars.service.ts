@@ -9,12 +9,13 @@ import { Customer } from '../types/customer';
 export class CarsService {
   constructor(private http: HttpClient) {}
   getCars(
-    filter: string,
+    carFilter: string,
+    customerFilter: string,
     page: number,
     limit: number
-  ): Observable<{ cars: Car[]; totals: any }> {
-    return this.http.get<{ cars: Car[]; totals: any }>(
-      `http://localhost:3001/cars?filter=${filter}&page=${page}&limit=${limit}`
+  ): Observable<{ cars: (Car & Customer)[]; totals: any }> {
+    return this.http.get<{ cars: (Car & Customer)[]; totals: any }>(
+      `http://localhost:3001/cars?car=${carFilter}&customer=${customerFilter}&page=${page}&limit=${limit}`
     );
   }
   getCar(id: number): Observable<Car> {
