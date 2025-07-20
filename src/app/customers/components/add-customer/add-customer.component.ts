@@ -33,4 +33,5 @@ export class AddCustomerComponent {
       this.customerForm.reset();
     });
   }
+  close() {}
 }

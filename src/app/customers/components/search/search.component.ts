@@ -3,10 +3,11 @@ import { CustomersService } from '../../../services/customers.service';
 import { Customer } from '../../../types/customer';
 import { JsonPipe } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { AddCustomerComponent } from '../add-customer/add-customer.component';
 
 @Component({
   selector: 'app-customers',
-  imports: [JsonPipe, RouterModule],
+  imports: [JsonPipe, RouterModule, AddCustomerComponent],
   providers: [CustomersService],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
@@ -22,6 +23,7 @@ export class SearchComponent {
   filter = signal<string>('');
   page = signal<number>(1);
   limit = signal<number>(10);
+  isAddCustomer = signal<boolean>(false);
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -99,5 +101,11 @@ export class SearchComponent {
       .subscribe((data) => {
         this.customers.set(data);
       });
+  };
+  openCustomerForm = () => {
+    this.isAddCustomer.set(true);
+  };
+  closeCustomerForm = () => {
+    this.isAddCustomer.set(false);
   };
 }

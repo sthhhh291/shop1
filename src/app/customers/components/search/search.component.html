@@ -31,7 +31,14 @@
       [max]="customers().totals.pages"
     />
   </div>
-  <a [routerLink]="['/customers/add']">Add Customer</a>
+  <!-- <a [routerLink]="['/customers/add']">Add Customer</a> -->
+</div>
+<div class="container">
+  @if (isAddCustomer()) {
+  <app-add-customer (close)="closeCustomerForm()"></app-add-customer>
+  } @else {
+  <button (click)="openCustomerForm()">Add Customer</button>
+  }
 </div>
 <ul>
   @for (customer of customers().customers; track customer.id) {
