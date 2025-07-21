@@ -35,7 +35,10 @@
 </div>
 <div class="container">
   @if (isAddCustomer()) {
-  <app-add-customer (close)="closeCustomerForm()"></app-add-customer>
+  <div class="">
+    <app-add-customer (close)="closeCustomerForm()"></app-add-customer>
+    <button (click)="closeCustomerForm()">Close</button>
+  </div>
   } @else {
   <button (click)="openCustomerForm()">Add Customer</button>
   }
